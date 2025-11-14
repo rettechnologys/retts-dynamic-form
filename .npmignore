@@ -1,0 +1,15 @@
+# Ignore source files
+src/
+public/
+index.html
+
+# Ignore config files
+vite.config.ts
+tsconfig*.json
+
+# Ignore development files
+node_modules/
+.DS_Store
+*.log
+
+# Keep only dist
