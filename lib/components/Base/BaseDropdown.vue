@@ -117,7 +117,6 @@ const DynamicField = defineAsyncComponent(
 );
 
 defineOptions({ name: 'BaseDropdown', inheritAttrs: false });
-const CNAME = 'BaseDropdown';
 //#region Props
 const props = defineProps<{
   name: string;
@@ -294,7 +293,7 @@ const onBeforeHide = () => {
   }
 };
 
-const onFocus = (e: Event): void => {
+const onFocus = (): void => {
   FilterService.register(RemoteFilterMatchMode, () => true);
   if (!datatableOverlay.value || !props.datatable) return undefined;
   else {

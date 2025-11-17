@@ -7,27 +7,27 @@ function InlineHTMLStyle(html: string, css: string) {
 function HTMLToWhatsApp(html: string) {
   return convert(html, {
     formatters: {
-      em: (elem, walk, builder, formatOptions) => {
+      em: (elem, walk, builder,) => {
         builder.addInline('_');
         walk(elem.children, builder);
         builder.addInline('_');
       },
-      strong: (elem, walk, builder, formatOptions) => {
+      strong: (elem, walk, builder,) => {
         builder.addInline('*');
         walk(elem.children, builder);
         builder.addInline('*');
       },
-      s: (elem, walk, builder, formatOptions) => {
+      s: (elem, walk, builder,) => {
         builder.addInline('~');
         walk(elem.children, builder);
         builder.addInline('~');
       },
-      code: (elem, walk, builder, formatOptions) => {
+      code: (elem, walk, builder,) => {
         builder.addInline('```');
         walk(elem.children, builder);
         builder.addInline('```');
       },
-      pre: (elem, walk, builder, formatOptions) => {
+      pre: (elem, walk, builder,) => {
         builder.addInline('```');
         walk(elem.children, builder);
         builder.addInline('```');

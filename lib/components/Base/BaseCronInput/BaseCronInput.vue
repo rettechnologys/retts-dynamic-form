@@ -216,7 +216,6 @@ const cronValue = reactive<{
 const {
   value: inputValue,
   errorMessage,
-  handleChange,
   setValue,
   meta,
 } = useField(name, rules, {

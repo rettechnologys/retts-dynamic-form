@@ -241,7 +241,7 @@ const onBeforeHide = () => {
   }
 };
 
-const onFocus = (e: Event): void => {
+const onFocus = (): void => {
   if (!datatableOverlay.value || !isDatatable.value) return undefined;
   else {
     acRef.value.$el.addEventListener('click', onShow);

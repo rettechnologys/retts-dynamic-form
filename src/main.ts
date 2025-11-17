@@ -15,6 +15,7 @@ import Tooltip from 'primevue/tooltip';
 import BadgeDirective from 'primevue/badgedirective';
 import Ripple from 'primevue/ripple';
 import StyleClass from 'primevue/styleclass';
+import { ValidatorPlugin } from 'retts-dynamic-form';
 // import AutoComplete from 'primevue/autocomplete';
 const AutoComplete = dac(() => import('primevue/autocomplete'));
 import Accordion from 'primevue/accordion';
@@ -245,6 +246,7 @@ app.use(PrimeVue, {
 app.use(ToastService);
 app.use(DialogService);
 app.use(ConfirmationService);
+app.use(ValidatorPlugin);
 
 app.directive('tooltip', Tooltip);
 app.directive('badge', BadgeDirective);
@@ -346,7 +348,6 @@ app.component('TreeTable', TreeTable);
 app.component('TriStateCheckbox', TriStateCheckbox);
 app.component('VirtualScroller', VirtualScroller);
 //#endregion PrimeVue
-
 
 
 app.mount('#app')

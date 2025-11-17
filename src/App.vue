@@ -1,8 +1,14 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 // Import from lib folder for development
-import { DynamicForm, type IFormState } from '../lib';
-import { initialFormState, type FormSchema, type FormSchemaWithFields, type IFormField } from '../lib/types/Form';
+import {
+  DynamicForm,
+  type IFormState,
+  type FormSchema,
+  type IFormField,
+  initialFormState,
+} from '../lib';
+
 
 const submittedData = ref<string | null>(null);
 const formState = ref<IFormState>(initialFormState);
@@ -42,15 +48,11 @@ const handleSubmit = (data: any) => {
 
 <template>
   <div class="container">
-    <h1>🚀 Retts Dynamic Form Example</h1>
+    <h1>🚀 Retts Dynamic Form Example</h1>bun <i class="devicons devicons-android"></i>
     <p class="subtitle">Importing from <code>./dist/retts-dynamic-form.es.js</code></p>
-    
-    <DynamicForm
-    :schema="formSchema as FormSchemaWithFields"
-    :form-state="formState"
-      @submit="handleSubmit"
-    />
-    
+
+    <DynamicForm :schema="formSchema as FormSchemaWithFields" :form-state="formState" @submit="handleSubmit" />
+
     <div v-if="submittedData" class="result-box">
       <h3>✅ Submitted Data:</h3>
       <pre>{{ submittedData }}</pre>

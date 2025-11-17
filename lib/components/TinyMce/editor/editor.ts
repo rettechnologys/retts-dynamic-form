@@ -1,3 +1,4 @@
+// oxlint-disable no-unused-vars
 /* Import TinyMCE */
 import tinymce from 'tinymce';
 
@@ -56,9 +57,10 @@ import 'tinymce/plugins/accordion';
 
 const filePickerCallback = (
   cb: (blobUri: string, options: { title: string }) => void,
-  value: string,
-  meta: any,
+  _value: string,
+  _meta: any,
 ) => {
+
   console.log('filePickerCallback');
   const input = document.createElement('input');
   input.setAttribute('type', 'file');

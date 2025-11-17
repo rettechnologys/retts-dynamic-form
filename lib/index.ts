@@ -1,13 +1,9 @@
-// Import directly from Vue files to avoid circular dependencies
-import 'primeflex/primeflex.min.css';
-import 'primevue/resources/primevue.min.css';
-import 'primeicons/primeicons.css';
-
+// DynamicForm components
 import DynamicForm from './DynamicForm/DynamicForm.vue';
 import DynamicField from './DynamicForm/DynamicField.vue';
 import DynamicFailMsg from './DynamicForm/DynamicFailMsg.vue';
 
-// Import Base components directly
+// Base components
 import BaseAutoComplete from './components/Base/BaseAutoComplete.vue';
 import BaseButton from './components/Base/BaseButton.vue';
 import BaseCalendar from './components/Base/BaseCalendar.vue';
@@ -42,10 +38,19 @@ import BaseToggleButton from './components/Base/BaseToggleButton.vue';
 import BaseTreeSelect from './components/Base/BaseTreeSelect.vue';
 import BaseSignaturePad from './components/Base/BaseSignaturePad.vue';
 
+// Export PrimeVue composables
+export * from './composables/prime';
+
 // Export types
 export type * from './types/Form';
-export {  initialFormState } from './types/Form';
+export { initialFormState } from './types/Form';
 export type * from './types/SignaturePadTypes';
+
+// Export validators
+export * from './validators';
+
+// Export validator plugin
+export { ValidatorPlugin, default as ValidatorPluginDefault } from './plugins/validator';
 
 // Export helpers
 export * from './helpers/String';

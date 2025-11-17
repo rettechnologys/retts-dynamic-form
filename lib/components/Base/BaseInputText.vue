@@ -79,7 +79,7 @@
 import { useClipboard } from '@vueuse/core';
 import type { InputTextProps } from 'primevue/inputtext';
 import { useField } from 'vee-validate';
-import { inject, toRef, watch } from 'vue';
+import { toRef, watch } from 'vue';
 
 //#region Props
 const props = defineProps<{
@@ -139,7 +139,7 @@ const { isSupported, copy } = useClipboard();
 //#endregion Composables
 
 //#region Inject
-const resetField = inject('setFieldValue') as (e: string, v: any) => void;
+// const resetField = inject('setFieldValue') as (e: string, v: any) => void;
 //#endregion Inject
 
 //#region Watchers

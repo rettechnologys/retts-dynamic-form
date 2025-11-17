@@ -122,7 +122,7 @@ const init = ref({
         try {
           const selection = editor.selection;
           const parentNode = selection.getNode().parentNode;
-          const node = selection.getNode();
+          // const node = selection.getNode();
 
           if (
             parentNode.classList.contains('protected') ||
@@ -145,12 +145,12 @@ const init = ref({
         }
       }
     });
-    editor.on('focus', (e: any) => {
-      const selection = editor.selection;
-      const parentNode = selection.getNode().parentNode;
-      const node = selection.getNode();
+    editor.on('focus', (_e: any) => {
+    // const selection = editor.selection;
+    // // const parentNode = selection.getNode().parentNode;
+    // // const node = selection.getNode();
     });
-    editor.on('input', (e: any) => {
+    editor.on('input', (_e: any) => {
       emits(
         'handle-change',
         Utils.InlineHTMLStyle(editor.getContent(), min_style),
@@ -176,7 +176,7 @@ const init = ref({
   },
 
   text_patterns_lookup: (ctx: any) => {
-    const parentTag = ctx.block.nodeName.toLowerCase();
+    // const parentTag = ctx.block.nodeName.toLowerCase();
     // console.log('parentTag', parentTag);
     // console.log('ctx', ctx.text);
     return [
@@ -209,8 +209,8 @@ onBeforeMount(() => {
 // eslint-disable-next-line no-useless-escape
 const filePickerCallback = (
   cb: (blobUri: string, options: { title: string }) => void,
-  value: string,
-  meta: any,
+  _value: string,
+  _meta: any,
 ) => {
   console.log('filePickerCallback');
   const input = document.createElement('input');

@@ -29,7 +29,7 @@ import type { TextareaProps } from 'primevue/textarea';
 import type { ToggleButtonProps } from 'primevue/togglebutton';
 import type { TreeSelectProps } from 'primevue/treeselect';
 import type { VNode } from 'vue';
-import CodeMirror from 'vue-codemirror6';
+// import CodeMirror from 'vue-codemirror6';
 
 export type IFormStatus = 'initial' | 'submiting' | 'success' | 'failure';
 export type IMessage = string | string[] | undefined;
@@ -250,7 +250,7 @@ type BaseCheckboxType = CheckboxProps & {
   atLeastOne?: boolean;
 };
 
-type CodeMirrorProps = InstanceType<typeof CodeMirror>['$props'];
+// type CodeMirrorProps = InstanceType<typeof CodeMirror>['$props'];
 
 type BaseInputGroupType = InputTextProps & {
   startAddon?: string;

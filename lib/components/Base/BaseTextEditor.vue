@@ -34,7 +34,7 @@ import { useField } from 'vee-validate';
 import { inject } from 'vue';
 import { toRef, watch } from 'vue';
 
-const CNAME = 'BaseTextEditor' as const;
+// const CNAME = 'BaseTextEditor' as const;
 
 //* Props
 const props = defineProps<{

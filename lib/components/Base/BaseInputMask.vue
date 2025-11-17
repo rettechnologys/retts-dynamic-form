@@ -98,8 +98,8 @@ const name = toRef(props, 'name');
 const rules = toRef(props, 'rules');
 const label = toRef(props, 'label');
 const value = toRef(props, 'value');
-const type = toRef(props, 'type');
-const phone_code = props.componentProps?.phone_code || '62';
+// const type = toRef(props, 'type');
+// const phone_code = props.componentProps?.phone_code || '62';
 
 console.log(`[${CNAME}]:value: ${value.value}`);
 
@@ -107,7 +107,6 @@ console.log(`[${CNAME}]:value: ${value.value}`);
 const {
   value: inputValue,
   errorMessage,
-  handleBlur,
   handleChange,
   meta,
 } = useField(name, rules, {

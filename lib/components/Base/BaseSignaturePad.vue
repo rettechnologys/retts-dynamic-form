@@ -58,10 +58,10 @@
 </template>
 
 <script setup lang="ts">
+import { useField } from 'vee-validate';
+import { toRef, watch } from 'vue';
 import SignaturePad from '../SignaturePad/SignaturePad.vue';
 import type { SignaturePadProps } from '../SignaturePad/Types';
-import { useField } from 'vee-validate';
-import { inject, toRef, watch } from 'vue';
 
 const CNAME = 'BaseSignaturePad';
 
@@ -123,7 +123,7 @@ const {
 //#endregion Composables
 
 //#region Inject
-const resetField = inject('setFieldValue') as (e: string, v: any) => void;
+// const resetField = inject('setFieldValue') as (e: string, v: any) => void;
 //#endregion Inject
 
 //#region Watchers

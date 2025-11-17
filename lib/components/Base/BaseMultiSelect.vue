@@ -116,7 +116,7 @@ import { inject, onMounted, ref, toRef } from 'vue';
 
 defineOptions({ name: 'BaseMultiSelect', inheritAttrs: false });
 
-const CNAME = 'BaseMultiSelect' as const;
+// const CNAME = 'BaseMultiSelect' as const;
 
 //#region Props
 const props = defineProps<{
@@ -257,7 +257,7 @@ const onBeforeHide = () => {
   }
 };
 
-const onFocus = (e: Event): void => {
+const onFocus = (): void => {
   //* Re-register the filter if component is called from overlay
   FilterService.register(RemoteFilterMatchMode, LazyFilterMatch);
 

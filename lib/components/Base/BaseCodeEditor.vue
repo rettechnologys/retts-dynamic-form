@@ -41,7 +41,7 @@
 <script setup lang="ts">
 import { json } from '@codemirror/lang-json';
 import { useField } from 'vee-validate';
-import { inject, ref, toRef, watch } from 'vue';
+import { ref, toRef, watch } from 'vue';
 import CodeMirror from 'vue-codemirror6';
 
 type CodeMirrorProps = InstanceType<typeof CodeMirror>['$props'];
@@ -97,7 +97,7 @@ const {
 });
 
 //#region Injects
-const resetField = inject('setFieldValue') as (e: string, v: any) => void;
+// const resetField = inject('setFieldValue') as (e: string, v: any) => void;
 
 //#region Watchers
 watch(

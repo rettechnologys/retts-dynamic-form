@@ -16,34 +16,97 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yourusername/retts-dynamic-form.git"
+    "url": "git+https://github.com/rettechnologys/retts-dynamic-form.git"
   },
-  "main": "./dist/retts-dynamic-form.umd.js",
+  "main": "./dist/retts-dynamic-form.umd.cjs",
   "module": "./dist/retts-dynamic-form.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/retts-dynamic-form.js",
-      "require": "./dist/retts-dynamic-form.umd.js"
+      "require": "./dist/retts-dynamic-form.umd.cjs"
     },
-    "./types/Form": {
-      "types": "./dist/types/Form.d.ts",
-      "import": "./dist/types/Form.js",
-      "require": "./dist/types/Form.umd.js"
+    "./dynamicform": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/retts-dynamic-form.js",
+      "require": "./dist/retts-dynamic-form.umd.cjs"
     },
-    "./types/SignaturePadTypes": {
-      "types": "./dist/types/SignaturePadTypes.d.ts",
-      "import": "./dist/types/SignaturePadTypes.js",
-      "require": "./dist/types/SignaturePadTypes.umd.js"
-    }
+    "./dynamicfield": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/retts-dynamic-form.js",
+      "require": "./dist/retts-dynamic-form.umd.cjs"
+    },
+    "./dynamicfailmsg": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/retts-dynamic-form.js",
+      "require": "./dist/retts-dynamic-form.umd.cjs"
+    },
+    "./baseautocomplete": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/retts-dynamic-form.js",
+      "require": "./dist/retts-dynamic-form.umd.cjs"
+    },
+    "./basebutton": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/retts-dynamic-form.js",
+      "require": "./dist/retts-dynamic-form.umd.cjs"
+    },
+    "./basecalendar": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/retts-dynamic-form.js",
+      "require": "./dist/retts-dynamic-form.umd.cjs"
+    },
+    "./basecheckbox": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/retts-dynamic-form.js",
+      "require": "./dist/retts-dynamic-form.umd.cjs"
+    },
+    "./basedropdown": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/retts-dynamic-form.js",
+      "require": "./dist/retts-dynamic-form.umd.cjs"
+    },
+    "./baseinputtext": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/retts-dynamic-form.js",
+      "require": "./dist/retts-dynamic-form.umd.cjs"
+    },
+    "./basemultiselect": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/retts-dynamic-form.js",
+      "require": "./dist/retts-dynamic-form.umd.cjs"
+    },
+    "./basepassword": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/retts-dynamic-form.js",
+      "require": "./dist/retts-dynamic-form.umd.cjs"
+    },
+    "./basetextarea": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/retts-dynamic-form.js",
+      "require": "./dist/retts-dynamic-form.umd.cjs"
+    },
+    "./types": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/retts-dynamic-form.js",
+      "require": "./dist/retts-dynamic-form.umd.cjs"
+    },
+    "./validators": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/retts-dynamic-form.js",
+      "require": "./dist/retts-dynamic-form.umd.cjs"
+    },
+    "./style.css": "./dist/retts-dynamic-form.css"
   },
   "files": [
-    "dist"
+    "dist",
+    "README.md",
+    "LICENSE"
   ],
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc --noEmit --composite false && vite build",
+    "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -51,6 +114,8 @@
     "@codemirror/lang-json": "^6.0.2",
     "@supercharge/strings": "^2.0.0",
     "@tinymce/tinymce-vue": "^6.0.1",
+    "@vee-validate/i18n": "^4.15.1",
+    "@vee-validate/rules": "^4.15.1",
     "@vueuse/core": "^14.0.0",
     "cronstrue": "^3.9.0",
     "html-to-text": "^9.0.5",
@@ -73,6 +138,7 @@
     "sass-embedded": "^1.93.3",
     "typescript": "~5.9.3",
     "vite": "^7.2.2",
+    "vite-plugin-dts": "^4.5.4",
     "vue-tsc": "^3.1.3"
   }
 }

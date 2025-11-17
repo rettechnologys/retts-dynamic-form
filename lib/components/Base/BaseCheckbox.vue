@@ -51,6 +51,9 @@
 </template>
 
 <script setup lang="ts">
+import type { CheckboxProps } from 'primevue/checkbox';
+import { useField } from 'vee-validate';
+import { defineAsyncComponent, inject, ref, toRef, watch } from 'vue';
 import {
   HandleDependantFields,
   ParseObjectLikeFieldName,
@@ -60,9 +63,6 @@ import type {
   IFormField,
   IOptionSelect,
 } from '../../types/Form';
-import type { CheckboxProps } from 'primevue/checkbox';
-import { useField } from 'vee-validate';
-import { defineAsyncComponent, inject, ref, toRef, watch } from 'vue';
 const DynamicField = defineAsyncComponent(
   () => import('../../DynamicForm/DynamicField.vue'),
 );
@@ -111,7 +111,6 @@ const fieldsRef = ref<IFormField[]>();
 const {
   value: inputValue,
   errorMessage,
-  handleBlur,
   handleChange,
   setValue,
   meta,

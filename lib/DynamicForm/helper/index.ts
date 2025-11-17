@@ -1,3 +1,4 @@
+// oxlint-disable no-unused-vars
 import { flatenNestedArray } from '../../helpers/Array';
 import type { CustomDataTableProps } from '../../types/Datatable';
 import type {
@@ -16,7 +17,7 @@ type NestedKeyOf<T> = T extends object
   : never;
 
 type ExtractedData<T, K extends string> = {
-  [P in K as P extends `${infer Key}.${infer Rest}`
+  [P in K as P extends `${infer Key}.${infer _Rest}`
     ? Key
     : P]: P extends `${infer Key}.${infer Rest}`
     ? ExtractedData<T[Key & keyof T], Rest>

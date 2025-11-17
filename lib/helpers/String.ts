@@ -45,7 +45,7 @@ export function replaceBracketStr({
   if (fullStr.includes(`${startSymbol}${findStr}${endSymbol}`)) {
     const newFullStr = fullStr.replace(
       new RegExp(`\\${startSymbol}(${findStr})\\${endSymbol}`, 'g'),
-      (_, key) => '<b>' + replaceStr + '</b>',
+      (_,) => '<b>' + replaceStr + '</b>',
     );
     console.log(
       'replaceBracketStr',
@@ -175,6 +175,7 @@ export function isValidUrl(urlString: string) {
     //console.log('isValidUrl', Boolean(new URL(urlString)));
     return Boolean(new URL(urlString));
   } catch (e) {
+    console.error('Invalid URL:', e);
     return false;
   }
 }

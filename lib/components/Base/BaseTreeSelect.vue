@@ -140,7 +140,6 @@ const acRef = ref();
 const {
   value: inputValue,
   errorMessage,
-  handleChange,
   meta,
 } = useField(name, rules, {
   initialValue: value.value,

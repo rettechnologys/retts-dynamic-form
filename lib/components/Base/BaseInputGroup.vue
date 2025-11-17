@@ -69,9 +69,8 @@ import InputGroup from 'primevue/inputgroup';
 import InputGroupAddon from 'primevue/inputgroupaddon';
 import type { InputTextProps } from 'primevue/inputtext';
 import { useField } from 'vee-validate';
-import { inject, toRef, watch } from 'vue';
+import { toRef, watch } from 'vue';
 
-const CNAME = 'BaseInputGroup' as const;
 //#region Props
 const props = defineProps<{
   name: string;
@@ -113,7 +112,7 @@ const {
 //#endregion Composables
 
 //#region Inject
-const resetField = inject('setFieldValue') as (e: string, v: any) => void;
+// const resetField = inject('setFieldValue') as (e: string, v: any) => void;
 //#endregion Inject
 
 //#region Watchers

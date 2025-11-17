@@ -185,38 +185,38 @@ const initialValues = toRef(props, 'initialValues');
  * If the tabsMode is "steps", it returns the schema of the active tab.
  * Otherwise, it returns undefined.
  */
-const currentSchema = computed(() => {
-  if (props.tabsMode === 'steps' && props.schema?.tabs) {
-    // Get the fields of the active tab
-    console.log(props.schema);
-    const activeTabFields = props.schema?.tabs[activeSteps.value]!.fields;
+// const currentSchema = computed(() => {
+//   if (props.tabsMode === 'steps' && props.schema?.tabs) {
+//     // Get the fields of the active tab
+//     console.log(props.schema);
+//     const activeTabFields = props.schema?.tabs[activeSteps.value]!.fields;
 
-    // Create a schema object with the rules of each field
-    const schema = activeTabFields.reduce((acc: Record<string, any>, field) => {
-      // If the field is a nested tab, iterate over its fields and add their rules to the schema
-      if (
-        field.name === 'tabs' &&
-        field.props.field &&
-        field.props.field.length > 0
-      ) {
-        field?.props?.field.forEach((tab: any) => {
-          tab.fields.forEach((subField: any) => {
-            acc[subField.name] = subField.rules;
-          });
-        });
-      } else {
-        // Otherwise, add the field's own rules to the schema
-        acc[field.name] = field.rules;
-      }
-      return acc;
-    }, {});
+//     // Create a schema object with the rules of each field
+//     const schema = activeTabFields.reduce((acc: Record<string, any>, field) => {
+//       // If the field is a nested tab, iterate over its fields and add their rules to the schema
+//       if (
+//         field.name === 'tabs' &&
+//         field.props.field &&
+//         field.props.field.length > 0
+//       ) {
+//         field?.props?.field.forEach((tab: any) => {
+//           tab.fields.forEach((subField: any) => {
+//             acc[subField.name] = subField.rules;
+//           });
+//         });
+//       } else {
+//         // Otherwise, add the field's own rules to the schema
+//         acc[field.name] = field.rules;
+//       }
+//       return acc;
+//     }, {});
 
-    return schema;
-  } else {
-    // If the tabsMode is not "steps", return undefined
-    return undefined;
-  }
-});
+//     return schema;
+//   } else {
+//     // If the tabsMode is not "steps", return undefined
+//     return undefined;
+//   }
+// });
 
 /**
  * Form State Message
@@ -293,7 +293,7 @@ onBeforeUnmount(() => {
 });
 
 //#region Methods
-const fnHandleInvalidSubmit = ({ values, errors, results }: any) => {
+const fnHandleInvalidSubmit = ({ values, errors, }: any) => {
   console.log('fnHandleInvalidSubmit', values); // current form values
 
   if (
@@ -326,7 +326,7 @@ const fnHandleInvalidSubmit = ({ values, errors, results }: any) => {
   }, 1000);
 };
 
-const fnHandleSubmit = handleSubmit((values, actions) => {
+const fnHandleSubmit = handleSubmit((values,) => {
   if (
     props.tabsMode === 'steps' &&
     props?.schema?.tabs &&

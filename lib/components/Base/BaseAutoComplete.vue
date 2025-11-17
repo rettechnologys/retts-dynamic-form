@@ -91,24 +91,24 @@
 </template>
 
 <script setup lang="ts">
-import {
-  extractKeysFromObject,
-  HandleDependantFields,
-} from '../../DynamicForm/helper/index';
-import type { IFormDependantFields, IFormField } from '../../types/Form';;
+import { useElementSize } from '@vueuse/core';
 import type {
   AutoCompleteCompleteEvent,
-  AutoCompleteDropdownClickEvent,
   AutoCompleteItemSelectEvent,
   AutoCompleteItemUnselectEvent,
-  AutoCompleteProps,
+  AutoCompleteProps
 } from 'primevue/autocomplete';
 import AutoComplete from 'primevue/autocomplete';
 import OverlayPanel from 'primevue/overlaypanel';
 import { useField } from 'vee-validate';
 import { inject, onMounted, ref, toRef, watch, type VNode } from 'vue';
 import DynamicField from '../../DynamicForm/DynamicField.vue';
-import { useElementSize } from '@vueuse/core';
+import {
+  extractKeysFromObject,
+  HandleDependantFields,
+} from '../../DynamicForm/helper/index';
+import type { IFormDependantFields, IFormField } from '../../types/Form';
+;
 
 defineOptions({ name: 'BaseAutoComplete', inheritAttrs: false });
 
@@ -273,13 +273,13 @@ const onShow = (e: Event) => {
   }
 };
 
-const onFocus = (e: any): void => {
+const onFocus = (): void => {
   if (!datatableOverlay.value || !props.datatable) return undefined;
   else {
     inputRef.value.$el.addEventListener('click', onShow);
   }
 };
-const handleDropdownClick = (e: AutoCompleteDropdownClickEvent): void => {
+const handleDropdownClick = (): void => {
   emits('handle-init-datatable', {
     name: name.value,
   });

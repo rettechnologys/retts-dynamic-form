@@ -1,22 +1,9 @@
 <!-- eslint-disable vue/no-unused-vars -->
 <template>
   <!-- Fieldset -->
-  <Fieldset
-    v-if="displayMode === 'fieldset'"
-    :legend="label"
-    :toggleable="true"
-    :disabled="disabled"
-  >
-    <div
-      data-testid="div-data"
-      v-for="(field, idx) in fields"
-      class="grid mt-2"
-      :key="field.key"
-    >
-      <DynamicField
-        v-for="(arr, idxArray) in fieldArray as IFormField[]"
-        :key="idxArray"
-        :fields="[
+  <Fieldset v-if="displayMode === 'fieldset'" :legend="label" :toggleable="true" :disabled="disabled">
+    <div data-testid="div-data" v-for="(field, idx) in fields" class="grid mt-2" :key="field.key">
+      <DynamicField v-for="(arr, idxArray) in fieldArray as IFormField[]" :key="idxArray" :fields="[
           Object.assign(
             { ...arr },
             { name: `${name}[${idx}].${arr.name}` },
@@ -30,19 +17,13 @@
               fieldArrIndex: idx,
             },
           ),
-        ]"
-      />
+        ]" />
 
       <div v-if="idx === 0 && props.atLeastOne" />
 
       <div v-else class="col-12 pb-2 flex h-fit justify-content-end mt-2">
-        <Button
-          v-if="showButton"
-          data-testid="button-remove"
-          class="p-button-sm p-button-danger"
-          icon="pi pi-trash"
-          @click="remove(idx)"
-        />
+        <Button v-if="showButton" data-testid="button-remove" class="p-button-sm p-button-danger" icon="pi pi-trash"
+          @click="remove(idx)" />
       </div>
       <Divider v-if="idx !== fields.length - 1" />
     </div>
@@ -50,45 +31,21 @@
     <div class="mt-2" />
 
     <div class="flex justify-content-end">
-      <Button
-        v-if="showButton"
-        data-testid="button-add"
-        class="p-button-sm p-button-success"
-        icon="pi pi-plus"
-        @click="onAddField()"
-      />
+      <Button v-if="showButton" data-testid="button-add" class="p-button-sm p-button-success" icon="pi pi-plus"
+        @click="onAddField()" />
     </div>
   </Fieldset>
   <!-- Draggable -->
-  <Fieldset
-    v-else-if="displayMode === 'draggable'"
-    :legend="label"
-    :toggleable="true"
-    :disabled="disabled"
-    :pt="{
+  <Fieldset v-else-if="displayMode === 'draggable'" :legend="label" :toggleable="true" :disabled="disabled" :pt="{
       toggleableContent: { class: 'p-3' },
-    }"
-  >
-    <draggable
-      v-model="fields"
-      @start="isDragging = true"
-      @end="onHandleMove"
-      item-key="orderNo"
-      :force-fallback="true"
-      @choose="isDragging = true"
-      @unchoose="isDragging = false"
-    >
-      <template #item="{ element, index: idx }">
+    }">
+    <draggable v-model="fields" @start="isDragging = true" @end="onHandleMove" item-key="orderNo" :force-fallback="true"
+      @choose="isDragging = true" @unchoose="isDragging = false">
+      <template #item="{ index: idx }">
         <div class="flex align-items-center mb-4">
           <i class="inline pi pi-arrows-v text-xl w-2rem mr-4 top-50" />
-          <div
-            class="grid card w-full"
-            :style="isDragging ? 'cursor: grabbing' : 'cursor: grab'"
-          >
-            <DynamicField
-              v-for="(arr, idxArray) in fieldArray as IFormField[]"
-              :key="idxArray"
-              :fields="[
+          <div class="grid card w-full" :style="isDragging ? 'cursor: grabbing' : 'cursor: grab'">
+            <DynamicField v-for="(arr, idxArray) in fieldArray as IFormField[]" :key="idxArray" :fields="[
                 Object.assign(
                   { ...arr },
                   { name: `${name}[${idx}].${arr.name}` },
@@ -102,31 +59,20 @@
                     fieldArrIndex: idx,
                   },
                 ),
-              ]"
-            />
+              ]" />
             <div v-if="idx === 0 && props.atLeastOne" />
 
             <div v-else class="col-12 pb-2 flex h-fit justify-content-end mt-2">
-              <Button
-                v-if="showButton"
-                data-testid="button-remove"
-                class="p-button-sm p-button-danger"
-                icon="pi pi-trash"
-                @click="remove(idx)"
-              />
+              <Button v-if="showButton" data-testid="button-remove" class="p-button-sm p-button-danger"
+                icon="pi pi-trash" @click="remove(idx)" />
             </div>
           </div>
         </div>
       </template>
       <template #footer>
         <div class="flex justify-content-end mt-4">
-          <Button
-            v-if="showButton"
-            data-testid="button-add"
-            class="p-button-sm p-button-success"
-            icon="pi pi-plus"
-            @click="onAddField()"
-          />
+          <Button v-if="showButton" data-testid="button-add" class="p-button-sm p-button-success" icon="pi pi-plus"
+            @click="onAddField()" />
         </div>
       </template>
     </draggable>
@@ -140,17 +86,13 @@
           <thead class="p-datatable-thead">
             <tr>
               <template v-for="(col, i) in columns">
-                <th
-                  class="p-datatable-header-cell"
-                  :key="i"
-                  v-if="
+                <th class="p-datatable-header-cell" :key="i" v-if="
                     !(
                       col.form?.type === 'header' ||
                       col.form?.type === 'footer' ||
                       col.form?.parentFieldClass?.includes('hidden')
                     )
-                  "
-                >
+                  ">
                   <div class="p-datatable-column-header-content">
                     <span class="p-column-title">{{ col.header }}</span>
                   </div>
@@ -162,86 +104,60 @@
           <tbody v-if="rowGroup" class="p-datatable-tbody">
             <!-- Row Group -->
             <template v-for="(header, i) in iRowGroupHeaderValues" :key="i">
-              <tr
-                class="p-rowgroup-header"
-                :class="[header.class || '', i % 2 === 0 ? 'p-even' : 'p-odd']"
-                :style="(header.style as any) || undefined"
-              >
+              <tr class="p-rowgroup-header" :class="[header.class || '', i % 2 === 0 ? 'p-even' : 'p-odd']"
+                :style="(header.style as any) || undefined">
                 <td :colspan="colSpan">
-                  <div
-                    class="flex align-items-center justify-content-between p-2"
-                  >
+                  <div class="flex align-items-center justify-content-between p-2">
                     <span class="font-bold">
                       {{ header.value }}
                     </span>
-                    <Button
-                      rounded
-                      icon="pi pi-plus"
-                      size="small"
-                      @click="onAddFieldDT(header.value)"
-                    />
+                    <Button rounded icon="pi pi-plus" size="small" @click="onAddFieldDT(header.value)" />
                   </div>
                 </td>
               </tr>
               <!-- Content -->
               <tr v-for="(field, j) in fields" :key="j" class="">
-                <template
-                  v-if="
+                <template v-if="
                     (field?.value as any)[groupRowsBy as string] ===
                     header.value
-                  "
-                >
+                  ">
                   <template v-for="(col, c) in columns">
-                    <td
-                      v-if="
+                    <td v-if="
                         !(
                           col?.form?.type === 'header' ||
                           col?.form?.type === 'footer' ||
                           col.form?.parentFieldClass?.includes('hidden')
                         )
-                      "
-                      :key="c"
-                      style="vertical-align: top"
-                      :style="col?.style || {}"
-                      :class="[col?.form?.fieldClass, ' ']"
-                    >
-                      <div
-                        v-if="
+                      " :key="c" style="vertical-align: top" :style="col?.style || {}"
+                      :class="[col?.form?.fieldClass, ' ']">
+                      <div v-if="
                           col?.bodyComponent &&
                           !(col?.type === 'header' || col?.type === 'footer')
-                        "
-                      >
-                        <component
-                          v-if="typeof col?.bodyComponent === 'function'"
-                          :is="
+                        ">
+                        <component v-if="typeof col?.bodyComponent === 'function'" :is="
                             col.bodyComponent({
                               field,
                               index: j,
                               setValue: update,
                             })
-                          "
-                          v-bind="{
+                          " v-bind="{
                             ...col.form,
                             name: `${name}[${j}].${col.form?.name}`,
-                          }"
-                        />
+                          }" />
                       </div>
                       <template v-else>
-                        <DynamicField
-                          v-if="
+                        <DynamicField v-if="
                             col &&
                             col?.form &&
                             !(col?.type === 'header' || col?.type === 'footer')
-                          "
-                          :fields="
+                          " :fields="
                             [
                               Object.assign(
                                 { ...col.form },
                                 { name: `${name}[${j}].${col.form?.name}` },
                               ),
                             ] as any
-                          "
-                        />
+                          " />
                       </template>
                     </td>
                   </template>
@@ -250,19 +166,9 @@
             </template>
           </tbody>
           <tbody v-else class="p-datatable-tbody">
-            <tr
-              v-for="(field, j) in fields"
-              :key="j"
-              :class="[j % 2 === 0 ? 'p-even' : 'p-odd']"
-            >
-              <td
-                v-for="(col, c) in columns"
-                :key="c"
-                :style="col?.style || {}"
-              >
-                <DynamicField
-                  v-if="col && col?.form"
-                  :fields="
+            <tr v-for="(field, j) in fields" :key="j" :class="[j % 2 === 0 ? 'p-even' : 'p-odd']">
+              <td v-for="(col, c) in columns" :key="c" :style="col?.style || {}">
+                <DynamicField v-if="col && col?.form" :fields="
                     [
                       Object.assign(
                         { ...col.form },
@@ -270,14 +176,10 @@
                         { name: `${name}[${j}].${col.form?.name}` },
                       ),
                     ] as any
-                  "
-                />
+                  " />
                 <div if="col?.bodyComponent">
-                  <component
-                    v-if="typeof col?.bodyComponent === 'function'"
-                    :is="col.bodyComponent({ field, index: j })"
-                    v-bind="{ rowData: { data: field, index: j } }"
-                  />
+                  <component v-if="typeof col?.bodyComponent === 'function'"
+                    :is="col.bodyComponent({ field, index: j })" v-bind="{ rowData: { data: field, index: j } }" />
                 </div>
               </td>
             </tr>
@@ -285,21 +187,14 @@
           <tfoot class="p-datatable-footer">
             <tr>
               <template v-for="(col, i) in columns">
-                <td
-                  :colspan="colSpan"
-                  v-if="
+                <td :colspan="colSpan" v-if="
                     col &&
                     col?.form?.type === 'footer' &&
                     !col?.form?.parentFieldClass?.includes('hidden')
-                  "
-                  :key="i"
-                >
+                  " :key="i">
                   <div class="flex justify-content-end p-3">
-                    <component
-                      v-if="typeof col?.bodyComponent === 'function'"
-                      :is="col.bodyComponent(fields)"
-                      v-bind="{ ...col.form }"
-                    />
+                    <component v-if="typeof col?.bodyComponent === 'function'" :is="col.bodyComponent(fields)"
+                      v-bind="{ ...col.form }" />
                     <component v-else :is="col.bodyComponent" v-bind="fields" />
                   </div>
                 </td>
@@ -310,16 +205,8 @@
       </div>
     </div>
     <template v-else>
-      <div
-        data-testid="div-data"
-        v-for="(field, idx) in fields"
-        class="grid"
-        :key="field.key"
-      >
-        <DynamicField
-          v-for="(arr, idxArray) in fieldArray as IFormField[]"
-          :key="idxArray"
-          :fields="[
+      <div data-testid="div-data" v-for="(field, idx) in fields" class="grid" :key="field.key">
+        <DynamicField v-for="(arr, idxArray) in fieldArray as IFormField[]" :key="idxArray" :fields="[
             Object.assign(
               { ...arr },
               { name: `${name}[${idx}].${arr.name}` },
@@ -327,39 +214,28 @@
                 fieldArrIndex: idx,
               },
             ),
-          ]"
-        />
+          ]" />
 
         <div v-if="idx === 0 && props.atLeastOne" />
 
         <div v-else class="col-12 pb-2 flex h-fit justify-content-end mt-2">
-          <Button
-            v-if="showButton"
-            data-testid="button-remove"
-            class="p-button-sm p-button-danger"
-            icon="pi pi-trash"
-            @click="remove(idx)"
-          />
+          <Button v-if="showButton" data-testid="button-remove" class="p-button-sm p-button-danger" icon="pi pi-trash"
+            @click="remove(idx)" />
         </div>
       </div>
 
       <div class="mt-2" />
 
       <div class="flex justify-content-end">
-        <Button
-          v-if="showButton"
-          data-testid="button-add"
-          class="p-button-sm p-button-success"
-          icon="pi pi-plus"
-          @click="push({})"
-        />
+        <Button v-if="showButton" data-testid="button-add" class="p-button-sm p-button-success" icon="pi pi-plus"
+          @click="push({})" />
       </div>
     </template>
   </template>
 </template>
 
 <script setup lang="ts">
-import { DynamicField } from '../../DynamicForm';
+import DynamicField from '../../dynamicfield';
 import type { IFormField, TRowGroupHeaderValues } from '../../types/Form';;
 import Button from 'primevue/button';
 import type { ColumnProps } from 'primevue/column';
