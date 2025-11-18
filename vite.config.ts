@@ -38,8 +38,10 @@ export default defineConfig({
           id === 'primeicons' ||
           id === 'primeflex' ||
           id === 'vee-validate' ||
+          id.startsWith('@vee-validate/') ||
           id.startsWith('@vueuse/') ||
           id.startsWith('@supercharge/') ||
+          id.startsWith('@retts-packages/') ||
           id === 'cronstrue' ||
           id === 'html-to-text' ||
           id === 'juice' ||
