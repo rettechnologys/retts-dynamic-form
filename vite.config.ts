@@ -59,6 +59,15 @@ export default defineConfig({
         // Provide global variables to use in the UMD build
         globals: {
           vue: 'Vue',
+          'vee-validate': 'VeeValidate',
+          '@vee-validate/rules': 'VeeValidateRules',
+          '@vee-validate/i18n': 'VeeValidateI18n',
+          '@vueuse/core': 'VueUse',
+          '@retts-packages/utilities-helper': 'RettsUtilities',
+          'signature_pad': 'SignaturePad',
+          tinymce: 'tinymce',
+          'vue-codemirror6': 'VueCodemirror',
+          vuedraggable: 'vuedraggable',
         },
         exports: 'named',
         assetFileNames: (assetInfo) => {
