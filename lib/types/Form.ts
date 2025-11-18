@@ -284,7 +284,7 @@ type BaseFileUploadType = FileUploadProps & {
   type?: 'rich' | undefined;
   allowedMimeTypes?: string;
   emptyMessage?: string;
-  notif: {
+  notif?: {
     file_size_error?: string;
     file_length_error?: string;
     submit_error?: string;
