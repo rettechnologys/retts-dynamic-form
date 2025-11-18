@@ -27,7 +27,7 @@
 </template>
 
 <script setup lang="ts">
-import { limitCharStr } from '../../../helpers/String';
+import { limitCharStr } from '@retts-packages/utilities-helper';
 import { computed, toRef } from 'vue';
 
 //#region Props

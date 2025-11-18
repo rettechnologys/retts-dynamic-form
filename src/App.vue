@@ -51,7 +51,7 @@ const handleSubmit = (data: any) => {
     <h1>🚀 Retts Dynamic Form Example</h1>bun <i class="devicons devicons-android"></i>
     <p class="subtitle">Importing from <code>./dist/retts-dynamic-form.es.js</code></p>
 
-    <DynamicForm :schema="formSchema as FormSchemaWithFields" :form-state="formState" @submit="handleSubmit" />
+    <DynamicForm :schema="formSchema" :form-state="formState" @submit="handleSubmit" />
 
     <div v-if="submittedData" class="result-box">
       <h3>✅ Submitted Data:</h3>

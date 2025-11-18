@@ -1,7 +1,7 @@
 import { defineRule, configure } from 'vee-validate';
 import { localize } from '@vee-validate/i18n';
 import * as AllRules from '@vee-validate/rules';
-import { formatPhoneNumber } from '../helpers/String';
+import { formatPhoneNumber } from '@retts-packages/utilities-helper';
 
 // Phone number pattern
 export const PATTERN_MOBILE_NUMBER = /^(\+62|62|0)[0-9]{9,13}$/;

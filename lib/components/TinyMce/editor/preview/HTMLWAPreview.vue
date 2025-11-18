@@ -29,7 +29,7 @@
 
 <script setup lang="ts">
 //#region imports
-import Utils from '../../../../helpers/Utils';
+import Utils from '@retts-packages/utilities-helper';
 import { ref } from 'vue';
 import { inject, onMounted } from 'vue';
 //#endregion imports

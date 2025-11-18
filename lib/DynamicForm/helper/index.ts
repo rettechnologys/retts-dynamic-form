@@ -1,5 +1,5 @@
 // oxlint-disable no-unused-vars
-import { flatenNestedArray } from '../../helpers/Array';
+import { flatenNestedArray } from '@retts-packages/utilities-helper';
 import type { CustomDataTableProps } from '../../types/Datatable';
 import type {
   AutoCompleteCompleteHandlerProps,

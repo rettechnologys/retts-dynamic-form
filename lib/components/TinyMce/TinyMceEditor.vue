@@ -11,7 +11,7 @@
 <script setup lang="ts">
 import * as editor from './editor/editor';
 import min_style from './editor/min-style';
-import Utils from '../../helpers/Utils';
+import Utils from '@retts-packages/utilities-helper';
 import Editor from '@tinymce/tinymce-vue';
 import { useDialog } from 'primevue/usedialog';
 import { useToast } from 'primevue/usetoast';
