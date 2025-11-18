@@ -133,7 +133,7 @@
     "vee-validate": "^4.13.2",
     "vue": "^3.5.24",
     "vue-codemirror6": "^1.4.1",
-    "vuedraggable": "^2.24.3"
+    "vuedraggable": "^4.1.0"
   },
   "devDependencies": {
     "@types/html-to-text": "^9.0.4",
