@@ -1,7 +1,7 @@
 {
   "name": "@retts-packages/dynamic-form",
   "private": false,
-  "version": "0.0.3-a",
+  "version": "0.0.3-b",
   "type": "module",
   "description": "Dynamic form and base components library for Vue 3 with PrimeVue integration",
   "author": "Retts",
